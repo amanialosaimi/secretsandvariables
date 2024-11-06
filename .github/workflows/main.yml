@@ -1,9 +1,22 @@
-on: push
+on:
+  push
 
-jobs: 
-   job1:
-      runs-on: ubento-latest
-      env:
-          var1: "Sinple enviromentt variable"
-      steps:
-          -
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      var1: "Simple Environemnt Variable"
+    environment: Tests
+    steps:
+      - name: Display the Env Variable
+        run:
+          echo "This variable is defined in Workflow with the value -" ${{ env.var1 }}
+
+      - name: Display the Repository Variable
+        run:
+          echo "This repository variable is defined in Workflow with the value -" ${{ vars.NAME }}
+
+      - name: Display the Repository Secret Variable
+        run:
+          echo "This repository secret variable is defined in Workflow with the value -" ${{ secrets.PASSWORD }}
+      
