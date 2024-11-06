@@ -1,0 +1,9 @@
+on: push
+
+jobs: 
+   job1:
+      runs-on: ubento-latest
+      env:
+          var1: "Sinple enviromentt variable"
+      steps:
+          -
